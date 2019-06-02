@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Board.h
+
+/Users/apollojain/Documents/projects/tictactoe_cpp/src/main.cpp
+iostream
+-
+stdio.h
+-
+stdlib.h
+-
+Board.h
+/Users/apollojain/Documents/projects/tictactoe_cpp/src/Board.h
+
