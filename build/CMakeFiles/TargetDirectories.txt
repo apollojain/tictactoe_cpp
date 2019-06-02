@@ -1,7 +1,6 @@
 /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/rebuild_cache.dir
 /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/test.dir
 /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/tictactoe.dir
-/Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/test_main.dir
-/Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/test_Board.dir
 /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/edit_cache.dir
 /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/test_Basic.dir
+/Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles/test_main.dir

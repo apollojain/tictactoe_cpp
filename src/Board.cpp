@@ -103,9 +103,18 @@ bool Board::place(int x, int y)
 	}
 }
 
+void Board::reset(int x, int y) {
+	board[x][y] = 0;
+}
+
 bool Board::isGameCompleted() 
 {
 	return gameCompleted;
+}
+
+int Board::getCurrentPlayer()
+{
+	return currentPlayer;
 }
 
 void Board::printBoard() 

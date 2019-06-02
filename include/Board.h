@@ -13,6 +13,8 @@ public:
 	bool place(int x, int y);
 	bool isGameCompleted();
 	int getItem(int x, int y);
+	int getCurrentPlayer();
+	void reset(int x, int y);
 	void setItem(int x, int y, int val);
 	void printBoard();
 	void play();

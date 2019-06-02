@@ -12,9 +12,6 @@ add_library(test_main OBJECT tests/test_main.cpp)
 add_executable(test_Basic tests/test_Basic.cpp $<TARGET_OBJECTS:test_main>)
 add_test(NAME test_Basic COMMAND test_Basic)
 
-add_executable(test_Board tests/test_Board.cpp $<TARGET_OBJECTS:test_main>)
-add_test(NAME test_Board COMMAND test_Board)
-
 #The file(GLOB...) allows for wildcard additions:
 file(GLOB SOURCES "src/*.cpp")
 

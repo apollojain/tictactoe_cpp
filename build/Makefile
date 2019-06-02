@@ -135,6 +135,19 @@ tictactoe/fast:
 .PHONY : tictactoe/fast
 
 #=============================================================================
+# Target rules for targets named test_Basic
+
+# Build rule for target.
+test_Basic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_Basic
+.PHONY : test_Basic
+
+# fast build rule for target.
+test_Basic/fast:
+	$(MAKE) -f CMakeFiles/test_Basic.dir/build.make CMakeFiles/test_Basic.dir/build
+.PHONY : test_Basic/fast
+
+#=============================================================================
 # Target rules for targets named test_main
 
 # Build rule for target.
@@ -147,31 +160,32 @@ test_main/fast:
 	$(MAKE) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/build
 .PHONY : test_main/fast
 
-#=============================================================================
-# Target rules for targets named test_Board
+src/Agent.o: src/Agent.cpp.o
 
-# Build rule for target.
-test_Board: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_Board
-.PHONY : test_Board
+.PHONY : src/Agent.o
 
-# fast build rule for target.
-test_Board/fast:
-	$(MAKE) -f CMakeFiles/test_Board.dir/build.make CMakeFiles/test_Board.dir/build
-.PHONY : test_Board/fast
+# target to build an object file
+src/Agent.cpp.o:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/src/Agent.cpp.o
+.PHONY : src/Agent.cpp.o
 
-#=============================================================================
-# Target rules for targets named test_Basic
+src/Agent.i: src/Agent.cpp.i
 
-# Build rule for target.
-test_Basic: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_Basic
-.PHONY : test_Basic
+.PHONY : src/Agent.i
 
-# fast build rule for target.
-test_Basic/fast:
-	$(MAKE) -f CMakeFiles/test_Basic.dir/build.make CMakeFiles/test_Basic.dir/build
-.PHONY : test_Basic/fast
+# target to preprocess a source file
+src/Agent.cpp.i:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/src/Agent.cpp.i
+.PHONY : src/Agent.cpp.i
+
+src/Agent.s: src/Agent.cpp.s
+
+.PHONY : src/Agent.s
+
+# target to generate assembly for a file
+src/Agent.cpp.s:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/src/Agent.cpp.s
+.PHONY : src/Agent.cpp.s
 
 src/Board.o: src/Board.cpp.o
 
@@ -254,33 +268,6 @@ tests/test_Basic.cpp.s:
 	$(MAKE) -f CMakeFiles/test_Basic.dir/build.make CMakeFiles/test_Basic.dir/tests/test_Basic.cpp.s
 .PHONY : tests/test_Basic.cpp.s
 
-tests/test_Board.o: tests/test_Board.cpp.o
-
-.PHONY : tests/test_Board.o
-
-# target to build an object file
-tests/test_Board.cpp.o:
-	$(MAKE) -f CMakeFiles/test_Board.dir/build.make CMakeFiles/test_Board.dir/tests/test_Board.cpp.o
-.PHONY : tests/test_Board.cpp.o
-
-tests/test_Board.i: tests/test_Board.cpp.i
-
-.PHONY : tests/test_Board.i
-
-# target to preprocess a source file
-tests/test_Board.cpp.i:
-	$(MAKE) -f CMakeFiles/test_Board.dir/build.make CMakeFiles/test_Board.dir/tests/test_Board.cpp.i
-.PHONY : tests/test_Board.cpp.i
-
-tests/test_Board.s: tests/test_Board.cpp.s
-
-.PHONY : tests/test_Board.s
-
-# target to generate assembly for a file
-tests/test_Board.cpp.s:
-	$(MAKE) -f CMakeFiles/test_Board.dir/build.make CMakeFiles/test_Board.dir/tests/test_Board.cpp.s
-.PHONY : tests/test_Board.cpp.s
-
 tests/test_main.o: tests/test_main.cpp.o
 
 .PHONY : tests/test_main.o
@@ -317,10 +304,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... tictactoe"
-	@echo "... test_main"
-	@echo "... test_Board"
 	@echo "... edit_cache"
 	@echo "... test_Basic"
+	@echo "... test_main"
+	@echo "... src/Agent.o"
+	@echo "... src/Agent.i"
+	@echo "... src/Agent.s"
 	@echo "... src/Board.o"
 	@echo "... src/Board.i"
 	@echo "... src/Board.s"
@@ -330,9 +319,6 @@ help:
 	@echo "... tests/test_Basic.o"
 	@echo "... tests/test_Basic.i"
 	@echo "... tests/test_Basic.s"
-	@echo "... tests/test_Board.o"
-	@echo "... tests/test_Board.i"
-	@echo "... tests/test_Board.s"
 	@echo "... tests/test_main.o"
 	@echo "... tests/test_main.i"
 	@echo "... tests/test_main.s"

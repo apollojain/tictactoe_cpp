@@ -6,15 +6,17 @@
 
 #IncludeRegexTransform: 
 
-../include/Board.h
-
-/Users/apollojain/Documents/projects/tictactoe_cpp/src/main.cpp
+../include/Agent.h
 iostream
 -
-stdio.h
--
-stdlib.h
--
 Board.h
-/Users/apollojain/Documents/projects/tictactoe_cpp/src/Board.h
+../include/Board.h
+
+../include/Board.h
+
+/Users/apollojain/Documents/projects/tictactoe_cpp/src/Agent.cpp
+iostream
+-
+Agent.h
+/Users/apollojain/Documents/projects/tictactoe_cpp/src/Agent.h
 

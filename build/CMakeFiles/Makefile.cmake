@@ -50,7 +50,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/tictactoe.dir/DependInfo.cmake"
-  "CMakeFiles/test_main.dir/DependInfo.cmake"
-  "CMakeFiles/test_Board.dir/DependInfo.cmake"
   "CMakeFiles/test_Basic.dir/DependInfo.cmake"
+  "CMakeFiles/test_main.dir/DependInfo.cmake"
   )

@@ -4,6 +4,9 @@
 #include "Board.h"
 using namespace std;
 
+#define DOCTEST_CONFIG_IMPLEMENT
+#include "doctest.h"
+
 void testSimpleGame() 
 {
 	Board b1;
@@ -59,7 +62,7 @@ void testSimpleGame()
 	b1.place(0, 2); // O placement at (1, 1)
 
 	// CHECK WINNER, try to place at new spot, shouldn't be able to
-	cout << "TEST 5: Check winner is X, try a new spot with 0";
+	cout << "TEST 5: Check winner is X, try a new spot with O\n";
 	cout << (b1.winner == 1);
 	cout << "\n";
 	cout << (b1.isGameCompleted() == true);
@@ -76,12 +79,6 @@ void testSimpleGame()
 
 
 }
-
-int main(int argc, char** argv) {
-    doctest::Context context;
-    context.applyCommandLine(argc, argv);
-    return context.run(); 
-} 
 
 int main() 
 {
