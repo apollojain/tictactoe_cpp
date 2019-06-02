@@ -21,9 +21,62 @@ int Agent::otherPlayer(int p)
 	return 0;
 }
 
-int Agent::alphabeta(Board &b, int depth, int alpha, int beta, int maximizingPlayer)
+int Agent::alphabeta(Board &b, int depth, int alpha, int beta, int currentPlayer)
 {
-	return 0;
+	if (depth == 0 || b.isGameCompleted()) {
+		if (b.winner == player) {
+			return 1000;
+		}
+		else if(b.winner == otherPlayer(player)) {
+			return -1000;
+		} else {
+			return 0;
+		}
+	}
+	if (currentPlayer == player) 
+	{
+		int value = -1000000;
+		for(int i = 0; i < 3; i ++)
+		{
+			for(int j = 0; j < 3; j ++)
+			{
+				if(b.isValidPlacement(i, j)) 
+				{
+					board.place(i, j);
+					value = std::max(value, alphabeta(b, depth - 1, alpha, beta, otherPlayer(currentPlayer)));
+					alpha = std::max(alpha, value);
+					board.reset(i, j);
+					if (alpha >= beta)
+					{
+						break;
+					}
+				}
+			}
+		}
+		return value;
+	}
+	else 
+	{
+		int value = 1000000;
+		for(int i = 0; i < 3; i ++)
+		{
+			for(int j = 0; j < 3; j ++)
+			{
+				if(b.isValidPlacement(i, j)) 
+				{
+					board.place(i, j);
+					value = std::min(value, alphabeta(b, depth - 1, alpha, beta, otherPlayer(currentPlayer)));
+					alpha = std::min(alpha, value);
+					board.reset(i, j);
+					if (alpha >= beta)
+					{
+						break;
+					}
+				}
+			}
+		}
+		return value;
+	}
 }
 
 std::pair<int, int> Agent::bestPlay(Board &b) {
