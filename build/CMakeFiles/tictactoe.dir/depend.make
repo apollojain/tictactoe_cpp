@@ -8,8 +8,14 @@ CMakeFiles/tictactoe.dir/src/Agent.cpp.o: ../src/Agent.cpp
 CMakeFiles/tictactoe.dir/src/Board.cpp.o: ../include/Board.h
 CMakeFiles/tictactoe.dir/src/Board.cpp.o: ../src/Board.cpp
 
+CMakeFiles/tictactoe.dir/src/Game.cpp.o: ../include/Agent.h
+CMakeFiles/tictactoe.dir/src/Game.cpp.o: ../include/Board.h
+CMakeFiles/tictactoe.dir/src/Game.cpp.o: ../include/Game.h
+CMakeFiles/tictactoe.dir/src/Game.cpp.o: ../src/Game.cpp
+
 CMakeFiles/tictactoe.dir/src/main.cpp.o: ../include/Agent.h
 CMakeFiles/tictactoe.dir/src/main.cpp.o: ../include/Board.h
+CMakeFiles/tictactoe.dir/src/main.cpp.o: ../include/Game.h
 CMakeFiles/tictactoe.dir/src/main.cpp.o: ../include/doctest.h
 CMakeFiles/tictactoe.dir/src/main.cpp.o: ../src/main.cpp
 

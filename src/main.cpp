@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include "Agent.h"
+#include "Game.h"
 using namespace std;
 
 #define DOCTEST_CONFIG_IMPLEMENT
@@ -13,6 +13,18 @@ Board nearCompleteGame() {
 	b.place(0, 0);
 	b.place(1, 0);
 	b.place(0, 1);
+	return b;
+}
+
+Board nearCompleteGame2() {
+	Board b;
+	b.place(1, 0);
+	b.place(0, 0);
+	b.place(1, 1);
+	b.place(0, 1);
+	b.place(0, 2);
+	b.place(1, 2);
+	b.place(2, 1);
 	return b;
 }
 void testSimpleGame() 
@@ -109,7 +121,7 @@ void testFinalGameLowDepth()
 	Agent a(b, 1, 1);
 	// int value = a.alphabeta(b, 1, -1000000, 1000000, 1);
 	// cout << value << "\n";
-	a.play();
+	a.playMove();
 	b.printBoard();
 
 }
@@ -120,7 +132,7 @@ void testFinalGameHighDepth()
 	Agent a(b, 1, 3);
 	// int value = a.alphabeta(b, 1, -1000000, 1000000, 1);
 	// cout << value << "\n";
-	a.play();
+	a.playMove();
 	b.printBoard();
 }
 
@@ -132,29 +144,39 @@ void testOpenedGame()
 	// int value = a.alphabeta(b, 1, -1000000, 1000000, 1);
 	// cout << value << "\n";
 	cout << "=====" << "\n";
-	a1.play();
+	a1.playMove();
 	b.printBoard();
 	cout << "=====" << "\n";
-	a2.play();
-	b.printBoard();
-
-	cout << "=====" << "\n";
-	a1.play();
-	b.printBoard();
-	cout << "=====" << "\n";
-	a2.play();
+	a2.playMove();
 	b.printBoard();
 
 	cout << "=====" << "\n";
-	a1.play();
+	a1.playMove();
 	b.printBoard();
 	cout << "=====" << "\n";
-	a2.play();
+	a2.playMove();
+	b.printBoard();
+
+	cout << "=====" << "\n";
+	a1.playMove();
+	b.printBoard();
+	cout << "=====" << "\n";
+	a2.playMove();
 	b.printBoard();
 
 }
 
-
+void testBlock()
+{
+	Board b = nearCompleteGame2();
+	Agent a1(b, 2, 3);
+	// b.place(2, 0);
+	b.printBoard();
+	int val = a1.alphabeta(b, 3, -10000, 10000, 2);
+	pair<int, int> p = a1.bestPlay(b);
+	cout << val << "\n";
+	cout << get<0>(p) << ", " << get<1>(p) << " \n"; 
+}
 
 
 int main() 
@@ -163,5 +185,7 @@ int main()
 	// testZeroGameDepth();
 	// testFinalGameLowDepth();
 	// testFinalGameHighDepth();
-	testOpenedGame();
+	// testOpenedGame();
+	// testBlock();
+	Game::play();
 }

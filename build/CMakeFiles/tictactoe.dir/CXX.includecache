@@ -14,9 +14,13 @@ Board.h
 
 ../include/Board.h
 
-/Users/apollojain/Documents/projects/tictactoe_cpp/src/Agent.cpp
+../include/Game.h
+Agent.h
+../include/Agent.h
+
+/Users/apollojain/Documents/projects/tictactoe_cpp/src/Game.cpp
 iostream
 -
-Agent.h
-/Users/apollojain/Documents/projects/tictactoe_cpp/src/Agent.h
+Game.h
+/Users/apollojain/Documents/projects/tictactoe_cpp/src/Game.h
 

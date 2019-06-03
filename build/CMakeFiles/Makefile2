@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/apollojain/Documents/projects/tictactoe_cpp/build
 CMakeFiles/tictactoe.dir/all:
 	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/depend
 	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles --progress-num=4,5,6,7 "Built target tictactoe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles --progress-num=4,5,6,7,8 "Built target tictactoe"
 .PHONY : CMakeFiles/tictactoe.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/tictactoe.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tictactoe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tictactoe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apollojain/Documents/projects/tictactoe_cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/tictactoe.dir/rule

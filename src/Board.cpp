@@ -76,6 +76,22 @@ void Board::checkGameComplete()
 		winner = getItem(2, 0);
 		gameCompleted = true;
 	}
+
+	if (!gameCompleted) {
+		winner = 0;
+		bool setGameCompleted = true;
+		for (int i = 0; i < 3; i ++) {
+			for (int j = 0; j < 3; j ++) {
+				if (getItem(i, j) == 0) {
+					setGameCompleted = false;
+					// cout << "-------------------\n";
+					// cout << winner << "\n";
+					// cout << "-------------------\n";
+				}
+			}
+		}
+		gameCompleted = setGameCompleted;
+	}
 }
 
 bool Board::isValidPlacement(int x, int y) 
@@ -142,22 +158,4 @@ void Board::printBoard()
         }
         std::cout << std::endl;
     }
-}
-
-void Board::play() 
-{
-	// start by having infinite loop telling if you've won or lost
-	while (!isGameCompleted())
-	{
-		// take in two numbers
-		int x, y;
-		cout << "Enter your row and column (first row then column, 1 to 3)\n";
-		cin >> x >> y;
-		while (!place(x - 1, y - 1))
-		{
-			cout << "Invalid entry. Enter your row and column (first row then column, 1 to 3)\n";
-			cin >> x >> y;
-		}
-		printBoard();
-	}
 }

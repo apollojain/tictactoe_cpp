@@ -12,5 +12,5 @@ public:
 	int getBoardScore(Board &b);
 	int alphabeta(Board &b, int depth, int alpha, int beta, int maximizingPlayer);
 	std::pair<int, int> bestPlay(Board &b);
-	void play();
+	void playMove();
 };

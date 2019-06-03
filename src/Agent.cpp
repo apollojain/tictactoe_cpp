@@ -101,12 +101,19 @@ int Agent::evaluateLine(int first, int second, int third) {
 int Agent::getBoardScore(Board &b) 
 {
 	int other = otherPlayer(player);
-	if (b.winner == player) {
+	if (b.isGameCompleted()) {
+		if (b.winner == player) {
 		return 10000;
+		}
+		else if(b.winner == otherPlayer(player)) {
+			return -10000;
+		} 
+		else 
+		{
+			return 0;
+		}
 	}
-	if(b.winner == otherPlayer(player)) {
-		return -10000;
-	} 
+	
 	int score = 0;
 	for (int row = 0; row < 3; row ++) 
 	{
@@ -121,13 +128,13 @@ int Agent::getBoardScore(Board &b)
 	score += evaluateLine(b.getItem(0, 0), b.getItem(1, 1), b.getItem(2, 2));
 	score += evaluateLine(b.getItem(0, 2), b.getItem(1, 1), b.getItem(2, 0));
 	return score;
+	// return 0;
 
 }
 
-int Agent::alphabeta(Board &b, int depth, int alpha, int beta, int currentPlayer)
+int Agent::alphabeta(Board &b, int d, int alpha, int beta, int currentPlayer)
 {
-	if (depth == 0 || b.isGameCompleted()) {
-
+	if (d == 0 || b.isGameCompleted()) {
 		return getBoardScore(b);
 	}
 	if (currentPlayer == player) 
@@ -140,7 +147,7 @@ int Agent::alphabeta(Board &b, int depth, int alpha, int beta, int currentPlayer
 				if(b.isValidPlacement(i, j)) 
 				{
 					b.place(i, j);
-					value = max(value, alphabeta(b, depth - 1, alpha, beta, otherPlayer(currentPlayer)));
+					value = max(value, alphabeta(b, d - 1, alpha, beta, otherPlayer(currentPlayer)));
 					alpha = max(alpha, value);
 					b.reset(i, j);
 					if (alpha >= beta)
@@ -162,7 +169,7 @@ int Agent::alphabeta(Board &b, int depth, int alpha, int beta, int currentPlayer
 				if(b.isValidPlacement(i, j)) 
 				{
 					b.place(i, j);
-					value = min(value, alphabeta(b, depth - 1, alpha, beta, otherPlayer(currentPlayer)));
+					value = min(value, alphabeta(b, d - 1, alpha, beta, otherPlayer(currentPlayer)));
 					alpha = min(alpha, value);
 					b.reset(i, j);
 					if (alpha >= beta)
@@ -189,7 +196,9 @@ pair<int, int> Agent::bestPlay(Board &b) {
 			if(b.isValidPlacement(i, j)) 
 			{
 				b.place(i, j);
-				int value = alphabeta(b, depth, alpha, beta, player);
+				int value = alphabeta(b, depth, alpha, beta, otherPlayer(player));
+				// cout << i << ", " << j << "\n";
+				// cout << value << "\n";
 				if (value > bestValue)
 				{
 					bestPair = make_pair<int, int>(i, j);
@@ -202,7 +211,7 @@ pair<int, int> Agent::bestPlay(Board &b) {
 	return bestPair;
 }
 
-void Agent::play() {
+void Agent::playMove() {
 	// figure out best play
 	if (board->getCurrentPlayer() == player) {
 		pair<int, int> selectedBestPlay = bestPlay(*board);
