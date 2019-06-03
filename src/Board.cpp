@@ -105,6 +105,9 @@ bool Board::place(int x, int y)
 
 void Board::reset(int x, int y) {
 	board[x][y] = 0;
+	gameCompleted = false;
+	winner = 0;
+	changePlayer();
 }
 
 bool Board::isGameCompleted() 

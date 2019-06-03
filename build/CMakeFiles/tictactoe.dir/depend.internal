@@ -9,6 +9,7 @@ CMakeFiles/tictactoe.dir/src/Board.cpp.o
  ../include/Board.h
  /Users/apollojain/Documents/projects/tictactoe_cpp/src/Board.cpp
 CMakeFiles/tictactoe.dir/src/main.cpp.o
+ ../include/Agent.h
  ../include/Board.h
  ../include/doctest.h
  /Users/apollojain/Documents/projects/tictactoe_cpp/src/main.cpp

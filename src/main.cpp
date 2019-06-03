@@ -1,12 +1,20 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include "Board.h"
+#include "Agent.h"
 using namespace std;
 
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "doctest.h"
 
+Board nearCompleteGame() {
+	Board b;
+	b.place(1, 1);
+	b.place(0, 0);
+	b.place(1, 0);
+	b.place(0, 1);
+	return b;
+}
 void testSimpleGame() 
 {
 	Board b1;
@@ -80,12 +88,80 @@ void testSimpleGame()
 
 }
 
+void testZeroGameDepth()
+{
+	Board b = nearCompleteGame();
+	Agent a(b, 1, 2);
+	int value = a.alphabeta(b, 0, -1000000, 1000000, 1);
+	cout << value << "\n";
+	b.place(1, 2);
+	b.printBoard();
+	cout << "======\n";
+	cout << b.winner << "\n";
+	cout << (a.player == b.winner) << "\n";
+	value = a.alphabeta(b, 0, -1000000, 1000000, 1);
+	cout << value << "\n";
+}
+
+void testFinalGameLowDepth()
+{
+	Board b = nearCompleteGame();
+	Agent a(b, 1, 1);
+	// int value = a.alphabeta(b, 1, -1000000, 1000000, 1);
+	// cout << value << "\n";
+	a.play();
+	b.printBoard();
+
+}
+
+void testFinalGameHighDepth()
+{
+	Board b = nearCompleteGame();
+	Agent a(b, 1, 3);
+	// int value = a.alphabeta(b, 1, -1000000, 1000000, 1);
+	// cout << value << "\n";
+	a.play();
+	b.printBoard();
+}
+
+void testOpenedGame()
+{
+	Board b;
+	Agent a1(b, 1, 3);
+	Agent a2(b, 2, 3);
+	// int value = a.alphabeta(b, 1, -1000000, 1000000, 1);
+	// cout << value << "\n";
+	cout << "=====" << "\n";
+	a1.play();
+	b.printBoard();
+	cout << "=====" << "\n";
+	a2.play();
+	b.printBoard();
+
+	cout << "=====" << "\n";
+	a1.play();
+	b.printBoard();
+	cout << "=====" << "\n";
+	a2.play();
+	b.printBoard();
+
+	cout << "=====" << "\n";
+	a1.play();
+	b.printBoard();
+	cout << "=====" << "\n";
+	a2.play();
+	b.printBoard();
+
+}
+
+
+
+
 int main() 
 {
-	testSimpleGame();
-	// int board[3][3];
-	// cout << board[0][0] << "\n";
-	// cout << board[0][1] << "\n";
-	// cout << board[1][0] << "\n";
-	// cout << board[1][1] << "\n";
+	// testSimpleGame();
+	// testZeroGameDepth();
+	// testFinalGameLowDepth();
+	// testFinalGameHighDepth();
+	testOpenedGame();
 }
